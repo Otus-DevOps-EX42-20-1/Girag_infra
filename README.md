@@ -29,7 +29,7 @@ alias someinternalhost="ssh someinternalhost"
 source ~/.bash_aliases
 ```
 
-Затем для подключения можно будет использовать команду `someinternalhost`. 
+Затем для подключения можно будет использовать команду `someinternalhost`.
 
 # Команда gcloud для создания инстанса со startup_script
 ```
@@ -47,6 +47,15 @@ gcloud compute instances create reddit-app\
 ```
 gcloud compute firewall-rules create default-puma-server --allow=tcp:9292 --target-tags=puma-server
 ```
+
+# Самостоятельная работа по Packer
+Шаблон `ubuntu16.json' был параметризирован с использованием пользовательских переменных. В файле variables.json заданы обязательные переменные. Также в указанный шаблон были добавлены опции для описания образа, размера и типа диска, названия сети и теги. Пример заполнения содержится в ф
+файле `variables.json.example`.
+
+# Задания со *
+Создан шаблон `immutable.json`, который "запекает" (bake) в образ VM все зависимости приложения и само приложение. В директории `packer/files` л
+ежит скрипт, который участвует в подготовке образа.
+Shell-скрипт `create-reddit- vm.sh` в директории `config-scripts` содержит команду утилиты gloud, которая запустит VM из образа семейства `reddit-full`, подготовленного в рамках ДЗ.
 
 # Данные для подключения
 bastion_IP = 34.77.200.119
